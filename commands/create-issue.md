@@ -11,6 +11,7 @@ Steps:
 1. Check `gh auth status`. If not authenticated, output: "GitHub CLI not authenticated. Run: `gh auth login`" and stop.
 2. Read CLAUDE.md and find "## GitHub Project Configuration" section. If missing, output: "Project config missing. Run: `/github-details`" and stop.
 3. Extract from CLAUDE.md:
+   - Project Owner
    - Project Number
    - Project Node ID
    - Default Assignee
@@ -48,7 +49,7 @@ Steps:
    - Stop
 10. Create issue via `gh issue create --title "<title>" --body-file <draft-path>`
 11. Extract issue number from output (format: "https://github.com/.../issues/<number>")
-12. Add issue to project: `gh project item-add <project-number> --owner @me --url <issue-url>`
+12. Add issue to project: `gh project item-add <project-number> --owner <project-owner> --url <issue-url>`
 13. If status is not "Backlog":
     - Run: `gh project item-edit --project-id <project-node-id> --id <item-id> --field-id <status-field-id> --single-select-option-id <status-option-id>`
     - Get item-id from step 12 output
